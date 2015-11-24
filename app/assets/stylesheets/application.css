@@ -13,3 +13,58 @@
  *= require_tree .
  *= require_self
  */
+
+
+* {
+	box-sizing: border-box;
+	font-size: 1em;
+}
+
+html, body {
+	height: 100%; 
+	margin: 0; 
+	padding: 0; 
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+	display: inline;
+}
+
+#map { 
+	height: 100%; 
+	width: 50%;
+	position: absolute;
+}
+
+#sidebar {
+	width: 50%;
+	border: 1px solid red;
+	height: 100%;
+	position: relative;
+	float: right;
+	padding: 10px;
+}
+
+.matches {
+	border: 1px solid blue;
+	width: 100%;
+	height: 30%;
+	padding: 10px;
+	text-align: right;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.photo {
+	width: 30%;
+	height: 100%;
+	border: 1px solid green;
+	border-radius: 100%;
+	float: left;
+}
+
+#testing {
+	padding: 10px;
+}
