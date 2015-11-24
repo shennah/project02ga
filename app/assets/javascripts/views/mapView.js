@@ -1,13 +1,17 @@
 var app = app || {};
 
-app.mapView = Backbone.View.extend ({
+app.mapView = Backbone.View.extend({
 	
-	el: "#map"
+	el: "#map",
 	
-	// events: {
+	events: {
+		 "click": "searchMarker"
 
+	},
 
-	// },
+	searchMarker: function() {
+		console.log('test marker');
+	}
 
 	// render: function() {
 

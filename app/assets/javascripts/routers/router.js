@@ -1,14 +1,16 @@
 var app = app || {};
 
-var app.Router = Backbone.Router.extend ({
+app.Router = Backbone.Router.extend ({
 
 		routes: {
-		"users": "homePage",
+		"marker": "placeMarker",
 		
 	},
 
-	homePage: function() {
-		console.log("welcome to the homepage");
+	placeMarker: function() {
+		console.log("placing the marker");
+		markerView = new app.mapView();
+		markerView.render();
 	}
 
 

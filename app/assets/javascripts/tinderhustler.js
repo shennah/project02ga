@@ -2,13 +2,7 @@
     evaluate : /\{\[([\s\S]+?)\]\}/g,
     interpolate : /\{\{([\s\S]+?)\}\}/g
 };
-var tinderData = $.ajax({
-		url: '/tinder',
-		dataType: 'json',
-		complete: function(data) {
-			console.log(data);
-		}
-	}); ;
+
 
 $(document).ready(function(){
 
@@ -39,7 +33,7 @@ var marker;
 var markers = [];
 var latitude;
 var longitude;
-
+var tinderData;
 
 
 function initMap() {
@@ -67,9 +61,6 @@ function initMap() {
     markers.pop(marker);
     marker.setMap(null);
   });
-
-
-
 } // initMap
 
 
@@ -105,6 +96,16 @@ function placeMarker(location) {
     console.log("New Latitude " + latitude + ", New Longitude " + longitude)
   });
 
+  window.location = window.location.pathname + "#marker"; //sets the URL to use backbone
+
+  var tinderData = $.ajax({
+		url: '/tinder',
+		dataType: 'json',
+		data: "tinder_client.update_location '" + latitude + "," + longitude + "'",
+		complete: function(data) {
+			console.log(data);
+		}
+	}); //requests rails to get data from tinder and return it back.
   // google.maps.event.addListener(marker, 'dragstart', function(e){
   //     document.getElementById('testing').innerHTML = '<p>Currently dragging marker...</p>';
   // });
