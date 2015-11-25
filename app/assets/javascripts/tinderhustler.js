@@ -13,7 +13,7 @@ $(document).ready(function(){
 	app.fetchMatchs.fetch();
 
 
-	var router = new app.Router();
+	app.router = new app.Router();
 	Backbone.history.start();
 
 
@@ -58,8 +58,8 @@ function initMap() {
 		data: {lat: latitude.toFixed(5), lon: longitude.toFixed(5)},
 		complete: function(data) {
 			console.log(data);
-			// app.navigate("users/#results/0")
-			window.location = window.location.pathname + "#results/0";
+			app.router.navigateFirstUser();
+			// window.location = window.location.pathname + "#results/0";
 			// window.location.replace("http://localhost:3000/users#results/0")
 		}
 	//sets the URL to use backbone

@@ -32,4 +32,11 @@ app.Router = Backbone.Router.extend({
 	},
 
 
+	navigateFirstUser: function() {
+		var ret = Backbone.history.navigate("results/0", true);
+		if (ret === undefined) {
+			Backbone.history.loadUrl("results/0"); // will function if URL is same as last history url.
+		};
+	}
+
 });
