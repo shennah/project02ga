@@ -6,22 +6,16 @@
 
 $(document).ready(function(){
 
-	// var tinderData = $.ajax({
-	// 	url: '/tinder',
-	// 	dataType: 'json',
-	// 	complete: function(data) {
-	// 		console.log(data);
-	// 	}
-	// });
+	app.fetchUsers = new app.Users();
+	app.fetchUsers.fetch();
+
+	app.fetchMatchs = new app.Matchs();
+	app.fetchMatchs.fetch();
+
 
 	var router = new app.Router();
 	Backbone.history.start();
-	// need to fetch data from database to implement
-	// app.fetchUsers = new app.Users();
-	// app.fetchUsers.fetch();
-	// app.fetchPosts = new app.Posts();
-	// app.fetchPosts.fetch();
-	console.log('test before insert')
+
 
 });
 
@@ -60,7 +54,9 @@ function initMap() {
 		data: {lat: latitude.toFixed(5), lon: longitude.toFixed(5)},
 		complete: function(data) {
 			console.log(data);
+			// app.navigate("users/#results/0")
 			window.location = window.location.pathname + "#results/0";
+			window.location.replace("http://localhost:3000/users#results/0")
 		}
 	//sets the URL to use backbone
 	});

@@ -5,16 +5,28 @@ app.sidebarView = Backbone.View.extend({
 
 	el: "#sidebar",
 
-	// events: {
+	events: {
+		"click .likePerson" : "savePerson"
+	},
 
-	// },
+	savePerson: function(id) {
+
+		var personInfo = tinderData.responseJSON[id];
+		var personAge = personInfo.age;
+		var personBio = personInfo.bio;
+		var personGender = personInfo.gender;
+		var personPhoto = personInfo.pictures[0];
+
+		// this.collection.create({
+		// 	name: personName, pictures: personPhoto, age: personAge, 
+		// 	bio: personBio
+	},
 
 	render: function(id) {
 		console.log('hello sidebar');
-		// console.log(tinderData.responseJSON[0]);
-		console.log(id);
+		
 		var personInfo = tinderData.responseJSON[id];
-		console.log (personInfo);
+		
 		var contentElem = $("<div/>").addClass("content");
 		var photoElem = $("<div/>").addClass("photo");
 		var matchInfo = $("<div/>").addClass("match-info");
@@ -22,7 +34,7 @@ app.sidebarView = Backbone.View.extend({
 		var no = $("<button/>").addClass("no");
 
 		photoElem.append("<img src=" + personInfo.pictures[0] + ">")
-		// $(".photo").html("<img src=" + personInfo.pictures[0] + ">")
+
 
 		var yes = $("<button/>").addClass("yes");
 
@@ -33,13 +45,16 @@ app.sidebarView = Backbone.View.extend({
 		
 		matchInfo.append(personName, personAge, personBio) //, personGender
 
+
+
 		contentElem.append(no, photoElem, yes, matchInfo);
 
 		this.$el.html(contentElem);
 
-
 	},
+
 });
+
 
 
 
