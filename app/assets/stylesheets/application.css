@@ -40,7 +40,7 @@ html, body {
 
 #sidebar {
 	width: 50%;
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	height: 100%;
 	position: relative;
 	float: right;
