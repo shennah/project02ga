@@ -7,17 +7,25 @@ app.sidebarView = Backbone.View.extend({
 
 	events: {
 		"click .yes" : "savePerson",
-		// "click .no" :
+		"click .no" : "discardPerson"
 	},
 
+	discardPerson: function(event) {
+		event.stopPropagation();
+		event.stopImmediatePropagation();
+		console.log("discarding person");
+		var id = Number($(".match-info").attr("id"));
+		id ++;
+		app.router.navigate("results/" + (id), true);
+		console.log("moving to next person");
+	},
+	
 	savePerson: function(event) {
 		// debugger;
 		event.stopPropagation();
 		event.stopImmediatePropagation();
-		event.preventDefault();
 		console.log("saving");
-		return
-		var id = $(".match-info").attr("id")
+		var id = Number($(".match-info").attr("id"));
 		// console.log(number);
 		var personInfo = tinderData.responseJSON[id];
 		var personName = personInfo.name;
@@ -29,7 +37,8 @@ app.sidebarView = Backbone.View.extend({
 		this.collection.create({
 			name: personName, pictures: personPhoto, age: personAge, 
 			bio: personBio});
-		
+		id ++;
+		app.router.navigate("results/" + (id), true);
 		console.log("saving compete")
 	},
 
