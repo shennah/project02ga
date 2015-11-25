@@ -19,8 +19,12 @@ app.sidebarView = Backbone.View.extend({
 		var photoElem = $("<div/>").addClass("photo");
 		var matchInfo = $("<div/>").addClass("match-info");
 
+		var no = $("<button/>").addClass("no");
+
 		photoElem.append("<img src=" + personInfo.pictures[0] + ">")
 		// $(".photo").html("<img src=" + personInfo.pictures[0] + ">")
+
+		var yes = $("<button/>").addClass("yes");
 
 		var personName = $("<div/>").addClass("name").text(personInfo.name);
 		var personAge = $("<div/>").addClass("age").text(personInfo.age);
@@ -29,7 +33,7 @@ app.sidebarView = Backbone.View.extend({
 		
 		matchInfo.append(personName, personAge, personBio) //, personGender
 
-		contentElem.append(photoElem, matchInfo);
+		contentElem.append(no, photoElem, yes, matchInfo);
 
 		this.$el.html(contentElem);
 

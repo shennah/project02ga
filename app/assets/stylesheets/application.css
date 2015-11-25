@@ -70,3 +70,16 @@ html, body {
 	text-align: center;
 	font-size: 2em;
 }
+
+.no{
+	width: 20px;
+	height: 20px;
+	background-color: red;
+	border: 1px solid black;
+}
+.yes {
+	width: 20px;
+	height: 20px;
+	background-color: green;
+	border: 1px solid black;
+}
