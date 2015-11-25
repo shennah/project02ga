@@ -51,9 +51,11 @@ app.sidebarView = Backbone.View.extend({
 		var personBio = $("<div/>").addClass("bio").text(personInfo.bio);
 		// var personGender = personInfo.gender;
 		
+		var seeMatches = $("<div>See your Matches!</div>").addClass("see-matches");
+
 		matchInfo.append(personName, personAge, personBio) //, personGender
 
-		contentElem.append(photoElem, matchInfo);
+		contentElem.append(photoElem, matchInfo, seeMatches);
 
 		this.$el.html(contentElem);
 		

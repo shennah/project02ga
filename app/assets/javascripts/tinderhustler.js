@@ -39,6 +39,9 @@ function initMap() {
     mapTypeId: google.maps.MapTypeId.HYBRID
   });
 
+  var geocoder = new google.maps.Geocoder;
+  var infowindow = new google.maps.InfoWindow;
+
 
   // map click event listener
   google.maps.event.addListener(map, 'click', function(event) {
@@ -46,6 +49,7 @@ function initMap() {
     latitude  = event.latLng.lat(); // stores lat and lng var on click
     longitude = event.latLng.lng();
     console.log("Latitude " + latitude + ", Longitude " + longitude)
+
 
     //sends a request to rails to get data from tiner
 	tinderData = $.ajax({
@@ -124,5 +128,6 @@ function deleteMarkers() {
   setMapOnAll(null);
   markers = [];
 }
+
 
 
