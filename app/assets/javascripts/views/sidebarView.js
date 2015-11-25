@@ -22,12 +22,12 @@ app.sidebarView = Backbone.View.extend({
 		photoElem.append("<img src=" + personInfo.pictures[0] + ">")
 		// $(".photo").html("<img src=" + personInfo.pictures[0] + ">")
 
-		var personName = $("<div/>").text(personInfo.name);
-		var personAge = personInfo.age;
-		var personBio = personInfo.bio;
-		var personGender = personInfo.gender;
+		var personName = $("<div/>").addClass("name").text(personInfo.name);
+		var personAge = $("<div/>").addClass("age").text(personInfo.age);
+		var personBio = $("<div/>").addClass("bio").text(personInfo.bio);
+		// var personGender = personInfo.gender;
 		
-		matchInfo.append(personName, personAge, personBio, personGender)
+		matchInfo.append(personName, personAge, personBio) //, personGender
 
 		contentElem.append(photoElem, matchInfo);
 
