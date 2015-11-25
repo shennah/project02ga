@@ -56,7 +56,7 @@ function initMap() {
 			console.log(data);
 			// app.navigate("users/#results/0")
 			window.location = window.location.pathname + "#results/0";
-			window.location.replace("http://localhost:3000/users#results/0")
+			// window.location.replace("http://localhost:3000/users#results/0")
 		}
 	//sets the URL to use backbone
 	});
