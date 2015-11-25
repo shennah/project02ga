@@ -60,8 +60,7 @@ function initMap() {
 		data: {lat: latitude.toFixed(5), lon: longitude.toFixed(5)},
 		complete: function(data) {
 			console.log(data);
-			window.location = window.location.pathname + "#marker";
-			resultsView.render();
+			window.location = window.location.pathname + "#results/0";
 		}
 	//sets the URL to use backbone
 	});
