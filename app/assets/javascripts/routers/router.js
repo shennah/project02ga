@@ -20,11 +20,15 @@ app.Router = Backbone.Router.extend({
 		console.log("rendering the results");
 		sidebarView = new app.sidebarView();
 		sidebarView.render(id);
+		
+
 	},
 
 	showSaved: function() {
 		console.log("showing saved people");
 		savedView = new app.viewSaved({collection: app.fetchMatchs});
 		savedView.render()
-	}
+	},
+
+
 });
