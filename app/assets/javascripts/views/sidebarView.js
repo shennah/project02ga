@@ -14,5 +14,4 @@ app.sidebarView = Backbone.View.extend({
 		console.log(tinderData.responseJSON[0]);
 	},
 
-})
-
+});
