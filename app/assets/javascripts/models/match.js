@@ -2,7 +2,7 @@ var app = app || {};
 
 app.Match = Backbone.Model.extend({
 
-	urlRoot: '/matchs',
+	urlRoot: '/matches',
 
 	defaults: {
 		name: "",

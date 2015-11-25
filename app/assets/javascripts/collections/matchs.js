@@ -2,7 +2,7 @@ var app = app || {};
 
 app.Matchs = Backbone.Collection.extend ({
 	
-	url: '/matchs',
+	url: '/matches',
 
 	model: app.Match	
 })
