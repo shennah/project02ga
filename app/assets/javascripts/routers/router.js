@@ -27,5 +27,12 @@ app.Router = Backbone.Router.extend({
 		console.log("showing saved people");
 		var savedView = new app.viewSaved({collection: app.fetchMatchs});
 		savedView.render()
+	},
+
+	navigateFirstUser: function() {
+		var ret = Backbone.history.navigate("results/0", true);
+		if (ret === undefined) {
+			Backbone.history.loadUrl("results/0"); // will function if URL is same as last history url.
+		};
 	}
 });

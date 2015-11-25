@@ -11,9 +11,12 @@ app.sidebarView = Backbone.View.extend({
 	},
 
 	savePerson: function(event) {
-		debugger;
+		// debugger;
+		event.stopPropagation();
+		event.stopImmediatePropagation();
 		event.preventDefault();
 		console.log("saving");
+		return
 		var id = $(".match-info").attr("id")
 		// console.log(number);
 		var personInfo = tinderData.responseJSON[id];
