@@ -9,8 +9,8 @@ app.Router = Backbone.Router.extend ({
 
 	placeMarker: function() {
 		console.log("placing the marker");
-		markerView = new app.mapView();
-		markerView.render();
+		resultsView = new app.sidebarView();
+		resultsView.render();
 	}
 
 

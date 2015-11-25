@@ -53,6 +53,18 @@ function initMap() {
     longitude = event.latLng.lng();
     console.log("Latitude " + latitude + ", Longitude " + longitude)
 
+    //sends a request to rails to get data from tiner
+	tinderData = $.ajax({
+		url: '/tinder',
+		dataType: 'json',
+		data: {lat: latitude.toFixed(5), lon: longitude.toFixed(5)},
+		complete: function(data) {
+			console.log(data);
+			window.location = window.location.pathname + "#marker";
+			resultsView.render();
+		}
+	//sets the URL to use backbone
+	});
   });
 
 
@@ -96,16 +108,9 @@ function placeMarker(location) {
     console.log("New Latitude " + latitude + ", New Longitude " + longitude)
   });
 
-  window.location = window.location.pathname + "#marker"; //sets the URL to use backbone
+  
 
-  var tinderData = $.ajax({
-		url: '/tinder',
-		dataType: 'json',
-		data: "tinder_client.update_location '" + latitude + "," + longitude + "'",
-		complete: function(data) {
-			console.log(data);
-		}
-	}); //requests rails to get data from tinder and return it back.
+ //requests rails to get data from tinder and return it back.
   // google.maps.event.addListener(marker, 'dragstart', function(e){
   //     document.getElementById('testing').innerHTML = '<p>Currently dragging marker...</p>';
   // });

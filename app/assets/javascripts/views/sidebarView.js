@@ -2,14 +2,15 @@ var app = app || {};
 
 app.sidebarView = Backbone.View.extend({
 
-	// el: "#sidebar",
+	el: "#sidebar",
 
 	// events: {
 
 	// },
 
-	// render: function() {
-
-	// },
+	render: function() {
+		console.log('hello sidebar');
+		console.log(tinderData.responseJSON[0]);
+	},
 
 })
