@@ -14,7 +14,7 @@ class GetTinderApiController < ApplicationController
   def people
     require 'tinderbot'
 
-    facebook_authentication_token = 'CAAGm0PX4ZCpsBAICZBDOoqZBjatbQQvlXZAyZCSbcL3tLzv6N6T43YWFpqL5Akn3PwFWqiFsZA9CZApVQDhKUtdfJL22ySphmVdOdUEjHJhFDZCT65c3TyxCczYYtZCVUZCGfchbaEyxdt0BmnyKgWjcToZCOnM8A2ZAZAmmcwuIiWbZAJXXi42QjaqZAy3ZC6mQDRDHtSpqdpStZChteUCGOHqkGKBDu
+    facebook_authentication_token = 'CAAGm0PX4ZCpsBAPnsCkAI003ID9JXdecIKB05GBj9ZBjJmKqveojorrFfWJZBB76IDVvrRpjoJYqdWSPkCk8tS1rbwFaLBAqS6juq67ngv4JVv5tedqZCQ3uWyEw33pC9zKqrruXCZAN354q4jyYXt7c7PqVz0rWWdA68uqNCkN4UCIP60bV47ZAGeJkQm7fZAmb7JNknLkVQZDZD
     '
     facebook_user_id = '597886126'
     latitude = params[:lat]

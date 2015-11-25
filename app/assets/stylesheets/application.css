@@ -48,38 +48,60 @@ html, body {
 }
 
 .content {
-	border: 1px solid blue;
 	height: 100%;
+	padding: 20px;
 }
 
 .photo {
 	position: relative;
 	width: 50%;
-	height: 50%;
+	height: 60%;
+	display: inline;
 }
 
 .photo img {
 	position: relative;
-	max-height: 100%;
-	margin-left: 25%;
+	max-height: 60%;
+	/*margin-left: 45%;*/
 	border-radius: 100%;
+	margin-left: 6%;
+}
+
+.match-info {
+	padding: 0px 50px 0px 50px;
 }
 
 .name {
-	margin-top: 20px;
+	margin-top: 50px;
 	text-align: center;
 	font-size: 2em;
 }
 
+.age {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 1.5
+}
+
+.bio {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 1.5;
+}
+
+.yes, .no {
+	margin-top: 30%;
+}
+
 .no{
-	width: 20px;
-	height: 20px;
-	background-color: red;
-	border: 1px solid black;
+	float: left;
+	background-image: url("/assets/no.png");
+	height: 64px;
+	width: 64px;
 }
 .yes {
-	width: 20px;
-	height: 20px;
-	background-color: green;
-	border: 1px solid black;
+	float: right;
+	background-image: url("/assets/yes.png");
+	height: 64px;
+	width: 64px;
 }
