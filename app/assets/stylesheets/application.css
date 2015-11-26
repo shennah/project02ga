@@ -125,8 +125,8 @@ html, body {
 	max-width: 100%;
 	/*margin-left: 45%;*/
 	border-radius: 100%;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: 5.5%;
+	margin-right: 5.5%;
 }
 
 .match-info {
@@ -139,16 +139,10 @@ html, body {
 	font-size: 2em;
 }
 
-.age {
+.age, .bio, .income {
 	margin-top: 20px;
 	text-align: center;
 	font-size: 1.5
-}
-
-.bio {
-	margin-top: 20px;
-	text-align: center;
-	font-size: 1.5;
 }
 
 .yes, .no {

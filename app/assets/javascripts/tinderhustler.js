@@ -145,7 +145,7 @@ function initMap() {
 
   // map click event listener
   google.maps.event.addListener(map, 'click', function(event) {
-    $('#goldminer, .blurb, .blurb2').fadeOut(function(){
+    $('#goldminer, .blurb, .blurb2, .match-info, .photo').fadeOut(function(){
       $('#loading').fadeIn("slow");
     });
     // $('#loading').show();

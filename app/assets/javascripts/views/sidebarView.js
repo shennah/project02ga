@@ -34,7 +34,7 @@ app.sidebarView = Backbone.View.extend({
 		event.stopImmediatePropagation();
 		console.log("saving");
 		var id = Number($(".match-info").attr("id"));
-		var personIncome = Number(($(".income").text()).replace("$","")); //gets dollar value from text, strips $ and converts into integer
+		var personIncome = Number(($(".income").text()).replace("Estimated Income: $","")); //gets dollar value from text, strips $ and converts into integer
 		var personInfo = tinderData.responseJSON[id];
 		var personName = personInfo.name;
 		var personAge = personInfo.age;
@@ -73,7 +73,9 @@ app.sidebarView = Backbone.View.extend({
 		var personName = $("<div/>").addClass("name").text(personInfo.name);
 		var personAge = $("<div/>").addClass("age").text(personInfo.age);
 		var personBio = $("<div/>").addClass("bio").text(personInfo.bio);
-		var personIncomeDiv = $("<div/>").addClass("income").text("$" + personIncome);
+
+		var personIncomeDiv = $("<div/>").addClass("income").text("Estimated Income: $" + personIncome);
+		// var personGender = personInfo.gender;
 		
 		var seeMatches = $("<div>See your Matches!</div>").addClass("see-matches");//.addClass("hvr-grow")
 
