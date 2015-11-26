@@ -34,7 +34,7 @@ app.sidebarView = Backbone.View.extend({
 		event.stopImmediatePropagation();
 		console.log("saving");
 		var id = Number($(".match-info").attr("id"));
-		var personIncome = $(".income").text()
+		var personIncome = Number(($(".income").text()).replace("$","")); //gets dollar value from text, strips $ and converts into integer
 		var personInfo = tinderData.responseJSON[id];
 		var personName = personInfo.name;
 		var personAge = personInfo.age;
