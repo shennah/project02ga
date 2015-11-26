@@ -21,13 +21,11 @@ $(document).ready(function(){
 
 });
 
-
-
 //// SHENNAHS TUFF
 
 var map;
 var marker;
-var markers = [];
+// var markers = [];
 var latitude;
 var longitude;
 var tinderData;
@@ -127,11 +125,24 @@ function initMap() {
 
   // initialise map, sets starting lat/lng, zoom
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
+    center: {lat: -33.8650, lng: 151.2094},
     zoom: 8,
     // mapTypeId: google.maps.MapTypeId.StyledMapType,
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'tinderroadmap']
+    }
+  });
+
+  var geocoder = new google.maps.Geocoder();
+
+  document.getElementById('submit').addEventListener('click', function() {
+    geocodeAddress(geocoder, map);
+  });
+
+  $(document).keypress(function(e) {
+    if(e.which == 13) {
+        console.log('You pressed enter!');
+        geocodeAddress(geocoder, map);
     }
   });
 
@@ -198,7 +209,7 @@ function placeMarker(location) {
       map: map,
       draggable: true,
   });
-  markers.push(marker);
+  // markers.push(marker);
 
 
   // adds info box with content to dropped marker 
@@ -227,15 +238,26 @@ function placeMarker(location) {
 
 }
 
-function setMapOnAll(map) {
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-  }
-}
+// function setMapOnAll(map) {
+//   for (var i = 0; i < markers.length; i++) {
+//     markers[i].setMap(map);
+//   }
+// }
 
-function deleteMarkers() {
-  setMapOnAll(null);
-  markers = [];
-}
+// function deleteMarkers() {
+//   setMapOnAll(null);
+//   markers = [];
+// }
 
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      resultsMap.setCenter(results[0].geometry.location);
+      resultsMap.setZoom(12);
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
 
