@@ -81,7 +81,7 @@ app.sidebarView = Backbone.View.extend({
 		var personIncomeDiv = $("<div/>").addClass("income").text("$" + personIncome);
 		// var personGender = personInfo.gender;
 		
-		var seeMatches = $("<div>See your Matches!</div>").addClass("see-matches");
+		var seeMatches = $("<div>See your Matches!</div>").addClass("see-matches");//.addClass("hvr-grow")
 
 		matchInfo.append(personName, personAge, personBio, personIncomeDiv).addClass('animated fadeIn') //, personGender;
 
