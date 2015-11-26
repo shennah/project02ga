@@ -15,6 +15,7 @@
  */
 
 .hvr-grow {
+
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: translateZ(0);
@@ -172,21 +173,34 @@ html, body {
 }
 
 .see-matches {
-	border: 2px solid #F2C063;
+	/*border: 2px solid #F2C063;*/
 	position: absolute;
 	bottom: 0;
 	text-align: center;
 	margin-left: 30%;
-	margin-bottom: 30px;
+	margin-right: 30%;
+	margin-bottom: 40px;
 	padding: 5px;
 	width: 30%;
 	background-color: #6FBFF2;
 	font-size: 1.2em;
 	color: #F2F2F2;
+
+	border-radius: 4px;
+  	box-shadow: 0 5px 0 #40A8F2;
+	transition: all .1s linear;
 }
 
 .see-matches:hover {
 	cursor: pointer;
+}
+
+.see-matches:active {
+	cursor: pointer;
+	border: 2px solid #F2C063;
+	box-shadow: 0 2px 0 #40A8F2;
+  	transform: translateY(3px);
+	
 }
 
 #loading {
@@ -219,4 +233,12 @@ html, body {
 
 .love {
 	color: #F2594B;
+}
+
+.person {
+	border: 1px solid red;
+}
+
+.saved-pic {
+	border: 1px solid blue;
 }
