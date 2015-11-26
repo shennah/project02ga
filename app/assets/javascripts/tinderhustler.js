@@ -7,14 +7,21 @@
 $(document).ready(function(){
 
 	app.fetchUsers = new app.Users();
-	app.fetchUsers.fetch();
+	app.fetchUsers.fetch({
+    complete: function() {
+      app.fetchMatchs = new app.Matchs();
+      app.fetchMatchs.fetch({
+        complete :function() {
+          app.router = new app.Router();
+          Backbone.history.start();
+        }
+      });
+    }
+  });
 
-	app.fetchMatchs = new app.Matchs();
-	app.fetchMatchs.fetch();
 
-
-	app.router = new app.Router();
-	Backbone.history.start();
+	// app.router = new app.Router();
+	// Backbone.history.start();
 
   $(document).bind("beforeSend", function(){
     $("#loading").hide();

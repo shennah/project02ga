@@ -1,37 +1,56 @@
 var app = app || {};
 
-app.singleView = Backbone.View.extend({
+app.singleSavedView = Backbone.View.extend({
 
 	el: "#sidebar",
 
 	events: {
+		"click .forward": "onForward",
+		"click .back": "onBack"
+	},
 
+	onForward: function(event) {
+		event.stopPropagation();
+		event.stopImmediatePropagation();
+		var id = Number($(".match-info").attr("id"));
+		id ++;
+		app.router.navigate("savedPeople/" + (id), true);
+		console.log("moving to next person");
+	},
+
+	onBack: function(event) {
+		event.stopPropagation();
+		event.stopImmediatePropagation();
+		var id = Number($(".match-info").attr("id"));
+		id --;
+		app.router.navigate("savedPeople/" + (id), true);
+		console.log("moving to back person");
 	},
 
 	render: function(id) {
 		console.log('hello again sidebar');
-		
-		var personInfo = tinderData.responseJSON[id];
-		
+		console.log(id);
+		var saved = app.fetchMatchs.models[id];
+		console.log(saved);
 		var contentElem = $("<div/>").addClass("content");
 		var photoElem = $("<div/>").addClass("photo");
+		var picUrl = saved.get("pictures");
+		photoElem.append("<img src=" + picUrl+ ">");
 		var matchInfo = $("<div/>").addClass("match-info").attr("id", id);
 		
-		photoElem.append(no, "<img src=" + personInfo.pictures[0] + ">", yes)
-		// $(".photo").html("<img src=" + personInfo.pictures[0] + ">")
-		
+		var back = $("<div/>").addClass("back").addClass('hvr-pulse-grow');
+		var forward = $("<div/>").addClass("forward").addClass('hvr-pulse-grow');
 
-		var personName = $("<div/>").addClass("name").text(personInfo.name);
-		var personAge = $("<div/>").addClass("age").text(personInfo.age);
-		var personBio = $("<div/>").addClass("bio").text(personInfo.bio);
+		var personName = $("<div/>").addClass("name").text(saved.get("name"));
+		var personAge = $("<div/>").addClass("age").text(saved.get("age"));
+		var personBio = $("<div/>").addClass("bio").text(saved.get("bio"));
 		// var personGender = personInfo.gender;
 		
-		var seeMatches = $("<div>See your Matches!</div>").addClass("see-matches");
-
 		matchInfo.append(personName, personAge, personBio) //, personGender
 
-		contentElem.append(photoElem, matchInfo, seeMatches);
+		contentElem.append(back, photoElem, forward, matchInfo);
 
 		this.$el.html(contentElem);
 		
-	},
+	}
+});
