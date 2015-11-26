@@ -209,7 +209,7 @@ html, body {
 	font-family: 'Pacifico', helvetica, sans-serif;
 	text-align: center;
 	margin-top: 200px; 
-	margin-bottom: 70px;
+	margin-bottom: 80px;
 }
 
 .blurb, .blurb2 {
@@ -269,5 +269,25 @@ html, body {
 
 .the-one {
 	color: #F2C063;
+}
+
+/*------------------*/
+
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 30%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#floating-panel:focus {
+	outline: none;
 }
 
