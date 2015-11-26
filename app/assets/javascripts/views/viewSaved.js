@@ -4,16 +4,6 @@ app.viewSaved = Backbone.View.extend({
 
 	el: "#sidebar",
 
-	events: {
-		"click .person": "viewSingle",
-	},
-
-	viewSingle: function(event) {
-		event.stopPropagation();
-		event.stopImmediatePropagation();
-		console.log(event.target);
-	},
-
 	render: function() {
 		console.log('show id');
 
