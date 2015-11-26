@@ -7,7 +7,15 @@ app.sidebarView = Backbone.View.extend({
 
 	events: {
 		"click .yes" : "savePerson",
-		"click .no" : "discardPerson"
+		"click .no" : "discardPerson",
+		"click .see-matches" : "savedMatches",
+	},
+
+	savedMatches: function(event) {
+		event.stopPropagation();
+		event.stopImmediatePropagation();
+		console.log("show all saved results");
+		app.router.navigate("savedPeople", true);
 	},
 
 	discardPerson: function(event) {
@@ -26,7 +34,6 @@ app.sidebarView = Backbone.View.extend({
 		event.stopImmediatePropagation();
 		console.log("saving");
 		var id = Number($(".match-info").attr("id"));
-		// console.log(number);
 		var personInfo = tinderData.responseJSON[id];
 		var personName = personInfo.name;
 		var personAge = personInfo.age;
