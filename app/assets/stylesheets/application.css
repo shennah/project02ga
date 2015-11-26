@@ -194,7 +194,6 @@ html, body {
 	border: 2px solid #F2C063;
 	box-shadow: 0 2px 0 #40A8F2;
   	transform: translateY(3px);
-	
 }
 
 #loading {
@@ -230,9 +229,31 @@ html, body {
 }
 
 .person {
-	border: 1px solid red;
+	display: inline-block;
+	margin: auto;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	-webkit-filter: grayscale(1);
+	-webkit-transition: -webkit-filter 500ms linear;
 }
 
-.saved-pic {
-	border: 1px solid blue;
+.person:hover {
+	cursor: pointer;
+	-webkit-filter: none;
 }
+
+.saved-pic, .person img{
+	width: 150px;
+	height: 150px;
+	border-radius: 100%;
+
+}
+
+.person-name {
+	width: 150px;
+	text-align: center;
+	font-size: 1.2em;
+	margin-top: 5px;
+}
+
