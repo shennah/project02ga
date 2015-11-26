@@ -19,7 +19,8 @@ app.viewSaved = Backbone.View.extend({
 
 		savedUsers = app.fetchMatchs;
 		var contentElem = $("<div/>").addClass("content");
-		
+		var theOne = $("<h2>Any of these... Could be <span class='the-one'>THE ONE</span></h2>").addClass("chosen");
+
 		savedUsers.each(function(user) {
 			var id = user.get("id");
 			var personElem = $("<div/>").addClass("person").attr("id", id);
@@ -30,6 +31,7 @@ app.viewSaved = Backbone.View.extend({
 
 			personElem.append(personPic, personName);
 			contentElem.append(personElem);
+			contentElem.prepend(theOne);
 		})
 
 		this.$el.html(contentElem)

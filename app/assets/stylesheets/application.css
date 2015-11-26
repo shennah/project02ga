@@ -137,12 +137,14 @@ html, body {
 	margin-top: 30px;
 	text-align: center;
 	font-size: 2em;
+	color: #08151F;
 }
 
 .age, .bio, .income {
-	margin-top: 20px;
+	margin-top: 15px;
 	text-align: center;
-	font-size: 1.5
+	font-size: 1.5;
+	color: #0A1B26;
 }
 
 .yes, .no {
@@ -202,12 +204,12 @@ html, body {
 }
 
 #goldminer {
-	font-size: 5em;
+	font-size: 6em;
 	color: #F2C063;
 	font-family: 'Pacifico', helvetica, sans-serif;
 	text-align: center;
 	margin-top: 200px; 
-	margin-bottom: 60px;
+	margin-bottom: 70px;
 }
 
 .blurb, .blurb2 {
@@ -255,5 +257,17 @@ html, body {
 	text-align: center;
 	font-size: 1.2em;
 	margin-top: 5px;
+	color: #0A1B26;
+}
+
+.chosen {
+	text-align: center;
+	font-size: 2em;
+	margin-bottom: 30px;
+	color: #08151F;
+}
+
+.the-one {
+	color: #F2C063;
 }
 

@@ -127,7 +127,7 @@ function initMap() {
 
   // initialise map, sets starting lat/lng, zoom
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
+    center: {lat: -33.8650, lng: 151.2094},
     zoom: 8,
     // mapTypeId: google.maps.MapTypeId.StyledMapType,
     mapTypeControlOptions: {
