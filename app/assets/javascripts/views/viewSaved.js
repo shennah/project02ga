@@ -10,18 +10,19 @@ app.viewSaved = Backbone.View.extend({
 		savedUsers = app.fetchMatchs;
 		var contentElem = $("<div/>").addClass("content");
 		
-		savedUsers.each(function() {
+		savedUsers.each(function(user) {
 			var personElem = $("<div/>").addClass("person")
 
 			var personPic = $("<div/>").addClass("saved-pic");
-			personPic.append("<img src=" + this.pictures + ">")
-			var personName = $("<div/>").addClass("person-name").text(this.name);
+			var picUrl = user.get("pictures");
+			personPic.append("<img src=" + picUrl+ ">");
+			var personName = $("<div/>").addClass("person-name").text(user.get("name"));
 
 			personElem.append(personPic, personName);
-			contentELem.append(personElem);
+			contentElem.append(personElem);
 		})
 
-		this.$el.html(contentELem)
+		this.$el.html(contentElem)
 	}
 
 })
