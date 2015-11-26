@@ -14,14 +14,11 @@ class GetTinderApiController < ApplicationController
   def people
     require 'tinderbot'
 
-<<<<<<< Updated upstream
-    facebook_authentication_token = 'CAAGm0PX4ZCpsBAP4FsL8kUv1hYW23imB1xFAXZCfIUktpNpze4BrgrkRpMADPBa7gHQVZAifiyV1ZAMXQUx6o3jJajqHQN5FEmVtOaTDpgWC7HSoOz8NXhiFAaBaN38yFs8ZCzWgZAtkA8fK6rSyXu3ZAX51GwlFIMMzZCgDDsTkindZAcYNo9GpP2cIBJZAx44MEFKx1etp2j9gZDZD
+
+    facebook_authentication_token = 'CAAGm0PX4ZCpsBAGb1hdQqaQG8SggJP4Gg65tp5HNbML3dGVjC8qahSgW6Xi5ePXx8iffG0AHa1DOZASGi2nqyLWZABrQsYstA02q98Nm2EnTZBT8jxM2uUw7l2kpYVXmqu4MFJaEj9G6147mmzJ9dCdrazwRLw810WcJZAJMMbfLlHw6Ju9eTcx2tUfoZB9ZCHPyhsGqzVzYQZDZD
     '
     facebook_user_id = '597886126'
-=======
-    facebook_authentication_token = 'CAAGm0PX4ZCpsBANNtrztE940hDYabKpulS2gHkPZBKMUhxIYu0PxnIDOK1iaKeoxe8mulqOmqphp4UexEvRUkoJaAKcZCLuQXv9LgZCTpAlA8yDwcyBmlxZALIJOjlRDbxwfDaE8bUtHbT5jRGndXB9kZAhWnY7XMUx6tWwRjsiByJ9UkbKgFZC0r0YWQcyyPeVYgCO4b5uKxwidOZCX8zFH'
-    facebook_user_id = '525551894'
->>>>>>> Stashed changes
+
     latitude = params[:lat]
     longtitude = params[:lon]
     tinder_client = Tinderbot::Client.new

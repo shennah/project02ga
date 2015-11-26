@@ -78,7 +78,7 @@ app.sidebarView = Backbone.View.extend({
 		var personName = $("<div/>").addClass("name").text(personInfo.name);
 		var personAge = $("<div/>").addClass("age").text(personInfo.age);
 		var personBio = $("<div/>").addClass("bio").text(personInfo.bio);
-		var personIncomeDiv = $("<div/>").addClass("income").text("$" + personIncome);
+		var personIncomeDiv = $("<div/>").addClass("income").text("Estimated Income: $" + personIncome);
 		// var personGender = personInfo.gender;
 		
 		var seeMatches = $("<div>See your Matches!</div>").addClass("see-matches");//.addClass("hvr-grow")
