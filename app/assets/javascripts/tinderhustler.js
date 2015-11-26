@@ -7,14 +7,21 @@
 $(document).ready(function(){
 
 	app.fetchUsers = new app.Users();
-	app.fetchUsers.fetch();
+	app.fetchUsers.fetch({
+    complete: function() {
+      app.fetchMatchs = new app.Matchs();
+      app.fetchMatchs.fetch({
+        complete :function() {
+          app.router = new app.Router();
+          Backbone.history.start();
+        }
+      });
+    }
+  });
 
-	app.fetchMatchs = new app.Matchs();
-	app.fetchMatchs.fetch();
 
-
-	app.router = new app.Router();
-	Backbone.history.start();
+	// app.router = new app.Router();
+	// Backbone.history.start();
 
   $(document).bind("beforeSend", function(){
     $("#loading").hide();
@@ -35,7 +42,7 @@ var markers = [];
 var latitude;
 var longitude;
 var tinderData;
-
+var postCode;
 
 function initMap() {
 
@@ -56,26 +63,30 @@ function initMap() {
     latitude  = event.latLng.lat(); // stores lat and lng var on click
     longitude = event.latLng.lng();
     console.log("Latitude " + latitude + ", Longitude " + longitude)
-
-
+    //find post code of marker
+    function findAddress(){
+      var newc = map.getCenter();
+      geocoder.geocode({'latLng': event.latLng}, function(results, status){
+        if (status == google.maps.GeocoderStatus.OK) {
+          var address = results[0].address_components;
+          console.log(address)
+          postCode = address[address.length - 1].long_name;
+          console.log(postCode);
+        }
+      });
+    };
+    findAddress();
     //sends a request to rails to get data from tiner
-	tinderData = $.ajax({
-		url: '/tinder',
-		dataType: 'json',
-		data: {lat: latitude.toFixed(5), lon: longitude.toFixed(5)},
-    beforeSend: function(data) {
-      console.log("beforeSend")
-    },
-		complete: function(data) {
-			console.log(data);
-			app.router.navigateFirstUser();
-			// window.location = window.location.pathname + "#results/0";
-			// window.location.replace("http://localhost:3000/users#results/0")
-		}
-	//sets the URL to use backbone
-	});
+  	tinderData = $.ajax({
+  		url: '/tinder',
+  		dataType: 'json',
+  		data: {lat: latitude.toFixed(5), lon: longitude.toFixed(5)},
+  		complete: function(data) {
+  			console.log(data);
+  			app.router.navigateFirstUser();
+  		}
 
-
+	 });
   });
 
 
