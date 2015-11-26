@@ -51,16 +51,13 @@ app.sidebarView = Backbone.View.extend({
 	},
 
 	render: function(id) {
-		// console.log('hello sidebar');
 		var personIncome;
-		// console.log("POSTCODE CAN BE SEEN IN SIDEBAR VIEW :" + postCode);
 		var incomeData = incomeJson.responseJSON.features;
 		for (var i = 0; i < incomeData.length; i++) {
 			if (incomeData[i].properties.name == postCode) {
 				personIncome = incomeData[i].properties.ato_average_taxable_income
 			};
 		}
-		// console.log (personIncome);
 
 		var personInfo = tinderData.responseJSON[id];
 
@@ -72,14 +69,11 @@ app.sidebarView = Backbone.View.extend({
 		var yes = $("<div/>").addClass("yes").addClass('hvr-pulse-grow');
 		
 		photoElem.append("<img src=" + personInfo.pictures[0] + ">").addClass('animated zoomIn');
-		// $(".photo").html("<img src=" + personInfo.pictures[0] + ">")
-		
 
 		var personName = $("<div/>").addClass("name").text(personInfo.name);
 		var personAge = $("<div/>").addClass("age").text(personInfo.age);
 		var personBio = $("<div/>").addClass("bio").text(personInfo.bio);
 		var personIncomeDiv = $("<div/>").addClass("income").text("$" + personIncome);
-		// var personGender = personInfo.gender;
 		
 		var seeMatches = $("<div>See your Matches!</div>").addClass("see-matches");//.addClass("hvr-grow")
 
@@ -88,7 +82,6 @@ app.sidebarView = Backbone.View.extend({
 		contentElem.append(no, photoElem, yes, matchInfo, seeMatches);
 
 		this.$el.html(contentElem);
-		
 	},
 
 
