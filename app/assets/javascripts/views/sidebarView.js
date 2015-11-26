@@ -51,10 +51,10 @@ app.sidebarView = Backbone.View.extend({
 		var photoElem = $("<div/>").addClass("photo");
 		var matchInfo = $("<div/>").addClass("match-info").attr("id", id);
 
-		var no = $("<div/>").addClass("no");
-		var yes = $("<div/>").addClass("yes");
+		var no = $("<div/>").addClass("no").addClass('hvr-pulse-grow');
+		var yes = $("<div/>").addClass("yes").addClass('hvr-pulse-grow');
 		
-		photoElem.append(no, "<img src=" + personInfo.pictures[0] + ">", yes)
+		photoElem.append("<img src=" + personInfo.pictures[0] + ">").addClass('animated zoomIn');
 		// $(".photo").html("<img src=" + personInfo.pictures[0] + ">")
 		
 
@@ -65,9 +65,9 @@ app.sidebarView = Backbone.View.extend({
 		
 		var seeMatches = $("<div>See your Matches!</div>").addClass("see-matches");
 
-		matchInfo.append(personName, personAge, personBio) //, personGender
+		matchInfo.append(personName, personAge, personBio).addClass('animated fadeIn') //, personGender
 
-		contentElem.append(photoElem, matchInfo, seeMatches);
+		contentElem.append(no, photoElem, yes, matchInfo, seeMatches);
 
 		this.$el.html(contentElem);
 		

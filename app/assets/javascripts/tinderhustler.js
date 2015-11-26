@@ -16,6 +16,13 @@ $(document).ready(function(){
 	app.router = new app.Router();
 	Backbone.history.start();
 
+  $(document).bind("beforeSend", function(){
+    $("#loading").hide();
+  }).bind("ajaxSend", function(){
+    $("#loading").show();
+  }).bind("complete", function(){
+    $("#loading").hide();
+  });
 
 });
 
@@ -56,6 +63,9 @@ function initMap() {
 		url: '/tinder',
 		dataType: 'json',
 		data: {lat: latitude.toFixed(5), lon: longitude.toFixed(5)},
+    beforeSend: function(data) {
+      console.log("beforeSend")
+    },
 		complete: function(data) {
 			console.log(data);
 			app.router.navigateFirstUser();
