@@ -5,7 +5,6 @@
 
 
 $(document).ready(function(){
-
 	app.fetchUsers = new app.Users();
 	app.fetchUsers.fetch({
     complete: function() {
@@ -34,7 +33,8 @@ $(document).ready(function(){
 });
 
 
-//// SHENNAHS STUFF
+
+//// SHENNAHS TUFF
 
 var map;
 var marker;
@@ -43,6 +43,11 @@ var latitude;
 var longitude;
 var tinderData;
 var postCode;
+
+var incomeJson= $.getJSON("/average-income.json", function(data) {
+  console.log(data);
+    // data is a JavaScript object now. Handle it as such
+  });
 
 function initMap() {
 
@@ -65,7 +70,6 @@ function initMap() {
     console.log("Latitude " + latitude + ", Longitude " + longitude)
     //find post code of marker
     function findAddress(){
-      var newc = map.getCenter();
       geocoder.geocode({'latLng': event.latLng}, function(results, status){
         if (status == google.maps.GeocoderStatus.OK) {
           var address = results[0].address_components;
@@ -75,7 +79,8 @@ function initMap() {
         }
       });
     };
-    findAddress();
+    findAddress(); //call function
+
     //sends a request to rails to get data from tiner
   	tinderData = $.ajax({
   		url: '/tinder',
@@ -85,10 +90,8 @@ function initMap() {
   			console.log(data);
   			app.router.navigateFirstUser();
   		}
-
-	 });
+	  });
   });
-
 
   // undo button
   $('.undo').on('click', function(){

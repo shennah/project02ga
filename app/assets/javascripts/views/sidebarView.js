@@ -34,6 +34,7 @@ app.sidebarView = Backbone.View.extend({
 		event.stopImmediatePropagation();
 		console.log("saving");
 		var id = Number($(".match-info").attr("id"));
+		var personIncome = $(".income").text()
 		var personInfo = tinderData.responseJSON[id];
 		var personName = personInfo.name;
 		var personAge = personInfo.age;
@@ -43,17 +44,26 @@ app.sidebarView = Backbone.View.extend({
 
 		this.collection.create({
 			name: personName, pictures: personPhoto, age: personAge, 
-			bio: personBio});
+			bio: personBio, income: personIncome});
 		id ++;
 		app.router.navigate("results/" + (id), true);
 		console.log("saving compete")
 	},
 
 	render: function(id) {
-		console.log('hello sidebar');
-		
+		// console.log('hello sidebar');
+		var personIncome;
+		// console.log("POSTCODE CAN BE SEEN IN SIDEBAR VIEW :" + postCode);
+		var incomeData = incomeJson.responseJSON.features;
+		for (var i = 0; i < incomeData.length; i++) {
+			if (incomeData[i].properties.name == postCode) {
+				personIncome = incomeData[i].properties.ato_average_taxable_income
+			};
+		}
+		// console.log (personIncome);
+
 		var personInfo = tinderData.responseJSON[id];
-		
+
 		var contentElem = $("<div/>").addClass("content");
 		var photoElem = $("<div/>").addClass("photo");
 		var matchInfo = $("<div/>").addClass("match-info").attr("id", id);
@@ -68,11 +78,12 @@ app.sidebarView = Backbone.View.extend({
 		var personName = $("<div/>").addClass("name").text(personInfo.name);
 		var personAge = $("<div/>").addClass("age").text(personInfo.age);
 		var personBio = $("<div/>").addClass("bio").text(personInfo.bio);
+		var personIncomeDiv = $("<div/>").addClass("income").text("$" + personIncome);
 		// var personGender = personInfo.gender;
 		
 		var seeMatches = $("<div>See your Matches!</div>").addClass("see-matches");
 
-		matchInfo.append(personName, personAge, personBio).addClass('animated fadeIn') //, personGender
+		matchInfo.append(personName, personAge, personBio, personIncomeDiv).addClass('animated fadeIn') //, personGender;
 
 		contentElem.append(no, photoElem, yes, matchInfo, seeMatches);
 
