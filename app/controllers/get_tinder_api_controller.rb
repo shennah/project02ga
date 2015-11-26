@@ -15,7 +15,7 @@ class GetTinderApiController < ApplicationController
     require 'tinderbot'
 
 
-    facebook_authentication_token = 'CAAGm0PX4ZCpsBAGb1hdQqaQG8SggJP4Gg65tp5HNbML3dGVjC8qahSgW6Xi5ePXx8iffG0AHa1DOZASGi2nqyLWZABrQsYstA02q98Nm2EnTZBT8jxM2uUw7l2kpYVXmqu4MFJaEj9G6147mmzJ9dCdrazwRLw810WcJZAJMMbfLlHw6Ju9eTcx2tUfoZB9ZCHPyhsGqzVzYQZDZD
+    facebook_authentication_token = 'CAAGm0PX4ZCpsBAGA6qKQa8N13nafbpHI83ywa6HZBh5SemkL8kDlbbJEGbuRdjLMa55vOZCuhsakT9dylhizmHbjh8OkNqvPCrAIpz6wduZBvH6PPeOp2QGMrLhcLxbpmLAwB7gIlT889WGihZBmgAxyZBLTstZCKFHDBIZBHZAAQoZCTorxcy4F2yTzA0yPk9O6NkcKeJ7JytJoNlDRvrCUkU
     '
     facebook_user_id = '597886126'
 

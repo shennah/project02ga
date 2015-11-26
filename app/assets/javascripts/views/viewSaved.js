@@ -4,15 +4,15 @@ app.viewSaved = Backbone.View.extend({
 
 	el: "#sidebar",
 
-	// events: {
-	// 	"click .person": "viewSingle",
-	// },
+	events: {
+		"click .person": "viewSingle",
+	},
 
-	// viewSingle: function(event) {
-	// 	event.stopPropagation();
-	// 	event.stopImmediatePropagation();
-	// 	console.log(event.target);
-	// },
+	viewSingle: function(event) {
+		event.stopPropagation();
+		event.stopImmediatePropagation();
+		console.log(event.target);
+	},
 
 	render: function() {
 		console.log('show id');
@@ -22,7 +22,8 @@ app.viewSaved = Backbone.View.extend({
 		
 		savedUsers.each(function(user) {
 			var id = user.get("id");
-			var personElem = $("<div/>").addClass("person").attr("id", id);
+			var personElem = $("<a href>").attr("href", "#savedPeople/" + id).addClass("person");
+			// var personElem = $("<div/>").addClass("person").attr("id", id);
 			var personPic = $("<div/>").addClass("saved-pic");
 			var picUrl = user.get("pictures");
 			personPic.append("<img src=" + picUrl+ ">");
