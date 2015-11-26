@@ -44,7 +44,7 @@ app.singleSavedView = Backbone.View.extend({
 		var personName = $("<div/>").addClass("name").text(saved.get("name"));
 		var personAge = $("<div/>").addClass("age").text(saved.get("age"));
 		var personBio = $("<div/>").addClass("bio").text(saved.get("bio"));
-		var personIncomeDiv = $("<div/>").addClass("income").text("$" + saved.get("income"));
+		var personIncomeDiv = $("<div/>").addClass("income").text("Estimated Income: $" + saved.get("income"));
 		// var personGender = personInfo.gender;
 		
 		matchInfo.append(personName, personAge, personBio, personIncomeDiv); //, personGender
