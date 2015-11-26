@@ -12,8 +12,8 @@ app.viewSaved = Backbone.View.extend({
 		var theOne = $("<h2>Any of these... Could be <span class='the-one'>THE ONE</span></h2>").addClass("chosen");
 
 		savedUsers.each(function(user) {
-			var id = user.get("id");
-			var personElem = $("<a href>").attr("href", "#savedPeople/" + id).addClass("person");
+			var id = Number(user.get("id"));
+			var personElem = $("<a href>").attr("href", "#savedPeople/" + ( id - 1 )).addClass("person");
 			// var personElem = $("<div/>").addClass("person").attr("id", id);
 			var personPic = $("<div/>").addClass("saved-pic");
 			var picUrl = user.get("pictures");
